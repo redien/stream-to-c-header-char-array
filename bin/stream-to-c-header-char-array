@@ -15,7 +15,7 @@ var chalk = require('chalk');
 var transformToCharArray = require('../stream-to-c-header-char-array');
 
 program
-  .version('1.0.0')
+  .version('1.1.0')
   .arguments('<array-identifier>')
   .parse(process.argv);
 

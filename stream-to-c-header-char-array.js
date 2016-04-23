@@ -11,15 +11,17 @@
 
 var resumer = require('resumer');
 
-module.exports = function (identifierName, inputStream) {
+var arraySize = 0;
+module.exports = function (identifierName) {
     var stream = resumer(function (data) {
         for (var index = 0; index < data.length; index++) {
             this.queue("(char)" + data[index] + ", ");
+            arraySize += 1;
         }
     }, function () {
-        this.queue("'\\0'};\n");
+        this.queue("'\\0'};\nlong " + identifierName + "_length = " + arraySize + ";");
     });
 
-    stream.queue('const char* ' + identifierName + ' = {');
+    stream.queue('const char ' + identifierName + '[] = {');
     return stream;
 };
