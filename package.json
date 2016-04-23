@@ -1,0 +1,38 @@
+{
+  "name": "stream-to-c-header-char-array",
+  "version": "1.0.0",
+  "description": "Translates a stream into a C-header char array.",
+  "main": "stream-to-c-header-char-array.js",
+  "bin": {
+    "stream-to-c-header-char-array": "./bin/stream-to-c-header-char-array"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redien/stream-to-c-header-char-array.git"
+  },
+  "keywords": [
+    "stream",
+    "char",
+    "array",
+    "c",
+    "header",
+    "cli",
+    "command-line",
+    "command"
+  ],
+  "author": {
+    "name": "Jesper Oskarsson",
+    "url": "http://jesperoskarsson.se",
+    "email": "jesosk@gmail.com"
+  },
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/redien/stream-to-c-header-char-array/issues"
+  },
+  "homepage": "https://github.com/redien/stream-to-c-header-char-array#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "resumer": "0.0.0",
+  }
+}

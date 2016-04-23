@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+// stream-to-c-header-char-array - Provides a handy command-line interface for writing char array C-headers.
+// Written in 2016 by Jesper Oskarsson jesosk@gmail.com
+//
+// To the extent possible under law, the author(s) have dedicated all copyright
+// and related and neighboring rights to this software to the public domain worldwide.
+// This software is distributed without any warranty.
+//
+// You should have received a copy of the CC0 Public Domain Dedication along with this software.
+// If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
+
+var program = require('commander');
+var chalk = require('chalk');
+var transformToCharArray = require('../stream-to-c-header-char-array');
+
+program
+  .version('1.0.0')
+  .arguments('<array-identifier>')
+  .parse(process.argv);
+
+if (program.args.length < 1) {
+    console.error(chalk.red('stream-to-c-header-char-array requires 1 argument.\nSee stream-to-c-header-char-array --help for usage.'));
+    process.exit(-1);
+}
+
+var arrayIdentifier = program.args[0];
+
+process.stdin
+    .pipe(transformToCharArray(arrayIdentifier))
+    .pipe(process.stdout);
